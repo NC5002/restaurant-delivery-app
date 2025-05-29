@@ -2,62 +2,47 @@
 
 import Link from 'next/link';
 import useCart from '../../hooks/useCart';
+import styles from './CartPage.module.css';
 
 export default function CartPage() {
   const { cart, removeFromCart, clearCart } = useCart();
   const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
+  // Si el carrito está vacío
   if (cart.length === 0) {
     return (
-      <main style={{ padding: '2rem' }}>
+      <main className={styles.empty}>
         <h1>🛒 Tu carrito está vacío</h1>
-        <Link
-          href="/"
-          style={{
-            display: 'inline-block',
-            marginTop: '1rem',
-            color: 'blue',
-            textDecoration: 'underline',
-          }}
-        >
+        <Link href="/" className={styles.linkHome}>
           Volver al menú
         </Link>
       </main>
     );
   }
 
-  const handleConfirm = () => {
-    alert(`Pedido confirmado. Total: $${total.toFixed(2)}. ¡Llegará pronto!`);
-    clearCart();
-  };
-
+  // Carrito con items
   return (
     <main style={{ padding: '2rem' }}>
       <h1>🛒 Carrito de Compras</h1>
-      <ul>
+
+      <ul className={styles.list}>
         {cart.map(item => (
-          <li key={item.id} style={{ marginBottom: '1rem' }}>
-            {item.quantity} × {item.name} — ${item.price.toFixed(2)} cada uno
+          <li key={item.id} className={styles.item}>
+            <span>
+              {item.quantity} × {item.name} — ${item.price.toFixed(2)}
+            </span>
             <button
               onClick={() => removeFromCart(item.id)}
-              style={{ marginLeft: '1rem' }}
+              className={styles.btnRemove}
             >
-              Eliminar
+              ❌
             </button>
           </li>
         ))}
       </ul>
-      <h2>Total: ${total.toFixed(2)}</h2>
-      <button
-        onClick={handleConfirm}
-        style={{
-          padding: '0.5rem 1rem',
-          background: '#080',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '4px',
-        }}
-      >
+
+      <div className={styles.total}>Total: ${total.toFixed(2)}</div>
+      <button onClick={() => { clearCart(); alert(`Pedido confirmado. Total: $${total.toFixed(2)}. ¡Llegará pronto!`); }} className={styles.btnConfirm}>
         Confirmar pedido
       </button>
     </main>

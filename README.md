@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍽️ Restaurant Delivery App – Documentación
 
-## Getting Started
+Este es un sistema de pedidos online enfocado en brindar una experiencia amigable al usuario final. A continuación, te explico paso a paso cómo está estructurado y cómo puedes levantarlo localmente o desplegarlo.
 
-First, run the development server:
+---
+
+## 1. 📁 Origen del Código
+
+- Toda la aplicación está disponible públicamente en GitHub bajo el repositorio:  
+  [NC5002/restaurant-delivery-app](https://github.com/NC5002/restaurant-delivery-app)
+- Para clonar el proyecto:
+  ```bash
+  git clone https://github.com/NC5002/restaurant-delivery-app.git
+  cd restaurant-delivery-app
+## 2. 🔧 Instalación de Dependencias y Arranque Local
+
+Instala las dependencias necesarias:
+
+```bash
+npm install
+```
+
+Se usan tecnologías como: React, Next.js, SwiperJS, NextAuth, lucide-react, react-hot-toast, entre otros.
+
+Crea un archivo `.env.local` en la raíz del proyecto con las siguientes variables:
+
+```env
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-nextauth-secret
+```
+
+💡 Consejo: Puedes generar `NEXTAUTH_SECRET` usando:
+
+```bash
+openssl rand -base64 32
+```
+
+o desde un script simple en Node.js.
+
+Levanta el servidor local:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 3. 🔐 Configuración de Google OAuth
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+En Google Cloud Console, crea un nuevo proyecto llamado:  
+**“ComeEnCasa Auth”**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Completa la pantalla de consentimiento:
 
-## Learn More
+- Tipo: **Externo**
+- Nombre de la aplicación
+- Email de soporte
+- Añade tu cuenta de prueba (tu Gmail)
 
-To learn more about Next.js, take a look at the following resources:
+Crea credenciales OAuth 2.0 de tipo **Web application** y registra:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Origen autorizado: `http://localhost:3000`
+- URI de redirección: `http://localhost:3000/api/auth/callback/google`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Copia el **Client ID** y **Client Secret** al archivo `.env.local`.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Y accede a la app en: http://localhost:3000
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 4. 🗂️ Estructura Next.js y App Router
+
+La aplicación usa la carpeta `app/` siguiendo el modelo **App Router**.
+
+El layout principal incluye un componente `<Providers>` (Client Component) que envuelve:
+
+- `<SessionProvider>` (NextAuth)  
+- `<CartProvider>` (gestor del carrito personalizado)
+
+Las rutas de autenticación se manejan en:
+
+```ts
+app/api/auth/[...nextauth]/route.ts
+
+Exportando GET y POST para login/logout.
+
+Componentes que usan estado reactivo (useSession, useCart, etc.) están marcados con 'use client'
+
+

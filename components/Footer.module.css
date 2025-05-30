@@ -1,0 +1,82 @@
+/* components/Footer.module.css */
+
+.footer {
+  background: #7B2C32;        /* color principal burdeos */
+  color: #f5f0ec;             /* texto claro */
+  padding: 3rem 1rem;         /* espacio generoso */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;               /* centra el bloque en la pantalla */
+  padding: 0 2rem;              /* un pequeño padding lateral */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;      /* centra las columnas dentro del contenedor */
+  align-items: flex-start;
+  gap: 4rem;                    /* espacio uniforme entre columnas */
+}
+
+
+/* Columna de info / enlaces */
+.col {
+  flex: 1 1 200px;
+}
+
+/* Título de sección */
+.col h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* Lista de enlaces */
+.col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.col ul li {
+  margin-bottom: 0.75rem;
+}
+.col ul li a {
+  color: #f5f0ec;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+}
+.col ul li a:hover {
+  color: #ffe6e0;
+  transform: translateX(4px);
+}
+
+/* Redes sociales */
+.socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #f5f0ec;
+  border-radius: 50%;
+  color: #7B2C32;
+  transition: background 0.2s, transform 0.2s;
+}
+.socials a:hover {
+  background: #ffe6e0;
+  transform: scale(1.1);
+}
+
+/* Pie de página secundario */
+.bottomBar {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #efdcd4;
+}

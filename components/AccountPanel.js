@@ -2,6 +2,7 @@
 
 import React from 'react';
 import NextImage from 'next/image';
+import styles from './AccountPanel.module.css'; // Asegúrate de crear este CSS
 
 
 export default function AccountPanel() {
@@ -13,20 +14,22 @@ export default function AccountPanel() {
   ];
 
   return (
-    <>
-      <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-        <h2 style={{ margin: '0.5rem 0 0' }}>{user.name}</h2>
-        <p style={{ margin: 0, color: '#666' }}>{user.email}</p>
+    <div className={styles.container}>
+      <div className={styles.profile}>
+        <div className={styles.name}>{user.name}</div>
+        <div className={styles.email}>{user.email}</div>
       </div>
-
       <h3>Últimos pedidos</h3>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+      <ul className={styles.orders}>
         {recentOrders.map(o => (
-          <li key={o.id} style={{ marginBottom: '1rem' }}>
-            <strong>#{o.id}</strong> — {o.date} — ${o.total.toFixed(2)}
+          <li key={o.id} className={styles.orderItem}>
+            <div className={styles.orderId}>#{o.id}</div>
+            <div className={styles.orderMeta}>
+              {o.date} — ${o.total.toFixed(2)}
+            </div>
           </li>
-        ))}
+          ))}
       </ul>
-    </>
+    </div>
   );
 }

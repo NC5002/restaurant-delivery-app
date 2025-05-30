@@ -5,6 +5,7 @@ import Link from 'next/link';
 import NextImage from 'next/image';
 import { ShoppingCart, Menu as MenuIcon } from 'lucide-react';
 import useCart from '../hooks/useCart';
+import CartSidebar from './CartSidebar';
 
 import styles from './Header.module.css';
 import Drawer from './Drawer';
@@ -16,6 +17,7 @@ export default function Header() {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const [menuOpen, setMenuOpen]     = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const [activeTab, setActiveTab]   = useState('account');
   const userName = 'Nicole'; // 🔥 Reemplaza por dato real si lo tienes
 
@@ -33,12 +35,15 @@ export default function Header() {
           <span className={styles.greeting}>¡Hola, {userName}!</span>
 
           {/* Carrito con contador */}
-          <Link href="/cart" className={styles.cartButton}>
+          <button
+            className={styles.cartButton}
+            onClick={() => setCartOpen(true)}
+          >
             <ShoppingCart size={20} />
             {totalItems > 0 && (
               <span className={styles.cartCount}>{totalItems}</span>
-            )}
-          </Link>
+            )}  
+          </button>
 
           {/* Botón hamburguesa */}
           <div className={styles.menuWrapper}>
@@ -50,6 +55,10 @@ export default function Header() {
           </div>
         </div>
       </header>
+
+       {/* Sidebar de Carrito */}
+       <CartSidebar open={cartOpen} onClose={() => setCartOpen(false)} />
+
 
       {/* Drawer lateral */}
       <Drawer

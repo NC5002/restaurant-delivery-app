@@ -67,22 +67,5 @@ Copia el **Client ID** y **Client Secret** al archivo `.env.local`.
 
 Y accede a la app en: http://localhost:3000
 
-## 4. 🗂️ Estructura Next.js y App Router
-
-La aplicación usa la carpeta `app/` siguiendo el modelo **App Router**.
-
-El layout principal incluye un componente `<Providers>` (Client Component) que envuelve:
-
-- `<SessionProvider>` (NextAuth)  
-- `<CartProvider>` (gestor del carrito personalizado)
-
-Las rutas de autenticación se manejan en:
-
-```ts
-app/api/auth/[...nextauth]/route.ts
-
-Exportando GET y POST para login/logout.
-
-Componentes que usan estado reactivo (useSession, useCart, etc.) están marcados con 'use client'
 
 

@@ -2,6 +2,21 @@
 
 Este es un sistema de pedidos online enfocado en brindar una experiencia amigable al usuario final. A continuación, te explico paso a paso cómo está estructurado y cómo puedes levantarlo localmente o desplegarlo.
 
+## .🧭 Mapa de Capacidades
+
+Se enfocó el desarrollo en el mapa de capacidades para **Atender Pedidos**, mejorando la interacción, personalización y seguimiento del proceso de pedido.
+
+![Mapa de Capacidades](./Mapa%20de%20Capacidadescomenecasa%20As-is%20V.2%20(2).png)
+
+## 👤 Autores  
+Este proyecto fue desarrollado por:
+
+- Nicole Alexandra Calvas Echeverría  
+- 📧 Correo Institucional: nacalvas@utpl.edu.ec
+- 🎓 Carrera: Tecnología en Transformación Digital de Empresas
+- 📍 Universidad o Institución: UTPL
+- 📅 Fecha de entrega: Mayo/2025
+
 ---
 
 ## 1. 📁 Origen del Código
@@ -123,6 +138,10 @@ Presiona “Deploy” y en minutos tendrás tu app en línea.
 La versión final está desplegada en:
 https://restaurant-delivery-app-mu.vercel.app/
 
-## 9. 🧭 Mapa de Capacidades
+## 📄 License
 
-Se enfocó el desarrollo en el mapa de capacidades para **Atención al Cliente**, mejorando la interacción, personalización y seguimiento del proceso de pedido.
+This project is licensed under the MIT License – see the LICENSE file for details.
+
+The MIT License permits commercial use, modification, distribution, and private use, provided that the original license notice is included.
+
+

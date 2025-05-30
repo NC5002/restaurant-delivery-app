@@ -67,5 +67,62 @@ Copia el **Client ID** y **Client Secret** al archivo `.env.local`.
 
 Y accede a la app en: http://localhost:3000
 
+## 4. 🗂️ Estructura Next.js y App Router
 
+La aplicación usa la carpeta `app/` siguiendo el modelo **App Router**.
 
+El layout principal incluye un componente `<Providers>` (Client Component) que envuelve:
+
+- `<SessionProvider>` (NextAuth)  
+- `<CartProvider>` (gestor del carrito personalizado)
+
+Las rutas de autenticación se manejan en:
+
+    app/api/auth/[...nextauth]/route.ts
+
+Exportando `GET` y `POST` para login/logout.
+
+Componentes que usan estado reactivo (`useSession`, `useCart`, etc.) están marcados con `'use client'`.
+
+## 5. 🎨 Desarrollo de la Interfaz
+
+La interfaz fue desarrollada con enfoque en UX, destacando:
+
+- **Hero dinámico**: Carrusel con imágenes del restaurante (SwiperJS, autoplay, loop, paginación).
+- **Menú interactivo**: Tarjetas cuadradas con imágenes, badges, botones de cantidad y animaciones.
+- **Carrito lateral**: Panel slide-in con overlay, edición de cantidades, eliminación y confirmación rápida.
+- **Barra de progreso**: Motiva al usuario a alcanzar el monto para envío gratis.
+- **Header responsivo**: Muestra logo, saludo personalizado, contador de artículos y menú hamburguesa.
+- **Footer completo**: Enlaces a Sobre Nosotros, Contacto, FAQ y redes sociales.
+
+## 6. 🔒 Protección de Rutas
+
+La carpeta `app/orders` contiene rutas protegidas:
+
+- Si el usuario no tiene sesión activa, es redirigido automáticamente al login de Google mediante NextAuth.
+
+## 7. ☁️ Despliegue en Vercel
+
+Conecta tu cuenta de GitHub con Vercel.
+
+Importa el proyecto y Vercel detectará automáticamente que es una app de Next.js.
+
+En Settings → Environment Variables, define las mismas cuatro variables que en local:
+
+```env
+GOOGLE_CLIENT_ID=...
+GOOGLE_CLIENT_SECRET=...
+NEXTAUTH_URL=https://restaurant-delivery-app-mu.vercel.app
+NEXTAUTH_SECRET=...
+```
+
+Presiona “Deploy” y en minutos tendrás tu app en línea.
+
+## 8. 🌐 URL de Producción
+
+La versión final está desplegada en:
+https://restaurant-delivery-app-mu.vercel.app/
+
+## 9. 🧭 Mapa de Capacidades
+
+Se enfocó el desarrollo en el mapa de capacidades para **Atención al Cliente**, mejorando la interacción, personalización y seguimiento del proceso de pedido.

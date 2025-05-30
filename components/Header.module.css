@@ -82,3 +82,19 @@
 .dropdown a:hover {
   background: #f5f5f5;
 }
+
+/* Header.module.css */
+
+.authButton {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.authButton:hover {
+  background: rgba(255,255,255,0.1);
+}

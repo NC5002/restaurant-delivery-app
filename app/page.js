@@ -1,33 +1,33 @@
 // app/page.js
 import Link from 'next/link';
 import { menuItems } from '../utils/menuData';
-import MenuItem from '../components/orders/MenuItem';
+import MenuItem     from '../components/orders/MenuItem';
+import HeroCarousel from '../components/HeroCarousel';
 
 export default function HomePage() {
   return (
-    <main style={{ padding: '2rem' }}>
-      <h1>🍽️ Come en Casa – Menú</h1>
+    <>
+      {/* Hero dinámico */}
+      <HeroCarousel />
 
-      {/* Link sin <a> interno */}
-      <Link
-        href="/cart"
-        style={{
-          float: 'right',
-          background: '#e00',
-          color: '#fff',
-          padding: '0.5rem 1rem',
-          borderRadius: '4px',
-          textDecoration: 'none',
-        }}
-      >
-        Ver carrito
-      </Link>
+      <main style={{ padding: '2rem' }}>
+        <h1>🍽️ Come en Casa – Menú</h1>
 
-      <div style={{ clear: 'both', marginTop: '2rem' }}>
-        {menuItems.map(item => (
-          <MenuItem key={item.id} item={item} />
-        ))}
-      </div>
-    </main>
+        {/* GRID responsivo de cards */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
+            gap: '1rem',
+            justifyItems: 'center',
+            marginTop: '2rem',
+          }}
+        >
+          {menuItems.map(item => (
+            <MenuItem key={item.id} item={item} />
+          ))}
+        </div>
+      </main>
+    </>
   );
 }

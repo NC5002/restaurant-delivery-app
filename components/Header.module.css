@@ -1,0 +1,84 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #7B2C32; /* Burdeos */
+  padding: 0.5rem 1rem;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.title {
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.greeting {
+  font-size: 0.95rem;
+}
+
+.cartButton {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.cartCount {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #e00;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+}
+
+.menuWrapper {
+  position: relative;
+}
+
+.menuIcon {
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #fff;
+  color: #333;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+.dropdown a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.dropdown a:hover {
+  background: #f5f5f5;
+}

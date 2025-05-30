@@ -1,0 +1,136 @@
+/* components/HeroCarousel.module.css */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+
+  /* Fondo principal — pattern muy suave */
+  background-color: #fdf8f2;                               /* color de base */
+  background-image: url('/textures/kitchen-pattern.png');  /* tu textura */
+  background-repeat: repeat;
+  background-size: auto  auto;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  background: url('/textures/smoke.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.08;            /* muy sutil */
+  pointer-events: none;     /* no molesta clicks */
+  animation: driftSmoke 20s linear infinite;
+}
+
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Leyenda */
+.caption {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  color: #fff;
+  max-width: 60%;
+}
+.caption h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+.caption p {
+  margin: 0.5rem 0 0;
+  font-size: 1.1rem;
+}
+
+/* Botones de navegación */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  z-index: 2;
+}
+.nav:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+.prev {
+  left: 1rem;
+}
+.next {
+  right: 1rem;
+}
+
+/* Paginación de puntos */
+.pagination {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+.dot, .dotActive {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.dot {
+  background: rgba(255, 255, 255, 0.5);
+}
+.dotActive {
+  background: #fff;
+}
+
+.slide { z-index: 1; }
+.caption { z-index: 2; }
+
+/* Animación de humo */
+@keyframes driftSmoke {
+  0% {
+    transform: translateX(0)   translateY(0)   scale(1);
+    opacity: 0.08;
+  }
+  50% {
+    transform: translateX(-10%) translateY(-5%) scale(1.1);
+    opacity: 0.05;
+  }
+  100% {
+    transform: translateX(-20%) translateY(-10%) scale(1.2);
+    opacity: 0.08;
+  }
+}

@@ -1,0 +1,87 @@
+/* components/orders/MenuItem.module.css */
+
+.card {
+  display: flex;
+  flex-direction: column;    /* apilar imagen sobre contenido */
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;               /* ocupa el ancho de la celda del grid */
+  max-width: 220px;          /* coincide con minmax del grid */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+/* Fuerza proporción cuadrada para la imagen */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;       /* ¡esto crea un cuadrado perfecto! */
+}
+.image {
+  object-fit: cover;
+}
+
+/* Resto de estilos de contenido… */
+.content {
+  padding: 0.75rem;
+  flex: 1;                   /* permite que el contenido se expanda */
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+.name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.price {
+  font-size: 1rem;
+  color: #7B2C32;
+  font-weight: 700;
+}
+.badges {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+.badge {
+  background: #e00;
+  color: #fff;
+  padding: 0.2rem 0.4rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
+}
+.controls {
+  margin-top: auto;          /* empuja controles al fondo */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn {
+  background: #7B2C32;
+  color: #fff;
+  border: none;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.cartIcon {
+  margin-left: auto;
+  font-size: 1.2rem;
+  color: #7B2C32;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.card:hover .cartIcon {
+  transform: scale(1.2);
+}

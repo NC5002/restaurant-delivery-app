@@ -1,30 +1,26 @@
-// app/layout.js  —  Server Component (no 'use client')
-import './globals.css';
-import CartProviderWrapper from '../context/CartProviderWrapper';
-import { Geist, Geist_Mono } from 'next/font/google';
+// app/layout.js
+import '../styles/globals.css';
+import Providers from '../components/Providers';
+import Header from '../components/Header';
+import { Toaster } from 'react-hot-toast';
+import Footer from '../components/Footer';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata = {
-  title: 'Come en Casa',
+  title:       'Come en Casa',
   description: 'Pedidos a domicilio',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>
-        {/* Aquí envolvemos en un componente client */}
-        <CartProviderWrapper>
+    <html lang="es" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <Providers>
+          <Header />
+           <Toaster position="bottom-center" />
           {children}
-        </CartProviderWrapper>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

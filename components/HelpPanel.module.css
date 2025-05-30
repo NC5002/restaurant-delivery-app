@@ -1,0 +1,44 @@
+/* components/HelpPanel.module.css */
+
+.container {
+  padding: 1rem;
+}
+
+.faqItem {
+  border-bottom: 1px solid #eee;
+  padding: 0.75rem 0;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.question:hover {
+  color: #7B2C32;
+}
+
+.answer {
+  margin-top: 0.5rem;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.contact {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.contact a {
+  color: #7B2C32;
+  text-decoration: none;
+  font-weight: 600;
+}
+.contact a:hover {
+  text-decoration: underline;
+}

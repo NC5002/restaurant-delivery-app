@@ -1,0 +1,59 @@
+/* components/AccountPanel.module.css */
+
+.container {
+  padding: 1rem;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.name {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.email {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.orders {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.orderItem {
+  background: #fafafa;
+  border-left: 4px solid #7B2C32;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+.orderItem:hover {
+  background: #f0ece8;
+}
+
+.orderId {
+  font-weight: 600;
+}
+
+.orderMeta {
+  color: #555;
+  font-size: 0.9rem;
+}
